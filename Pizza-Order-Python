@@ -1,0 +1,79 @@
+def topping_function(topping_number):
+  while topping_number < 0:
+    topping_number = int(input("Not available. Try again: "))
+  if topping_number != 0 and topping_number < 4:
+    total.append(float(topping_number*1.5))
+  if topping_number >= 4:
+    total.append(4.5 + (topping_number-3.0))
+  if topping_number == 0:
+    print("No toppings on pizza #" + str(pizza_count) + ".")
+#this function allows the program to determine how much money for the number of toppings the user orders
+
+print("Hi, thank you for ordering APCSPizza!")
+pizza_num = int(input("How many pizzas would you like? "))
+if pizza_num <= 0:
+  print("Okay bye.")
+#if the user orders no pizzas, the program ends
+if pizza_num > 0:
+  pizza_count = 1
+  total = []
+  #list to keep all individual costs
+  print(" ")
+  for i in range(pizza_num):
+  # by using a for loop for the number of pizzas, the same data can be recorded for each without having to repeated code the same thing
+    size = int(input("What size would you like pizza #" + str(pizza_count)+"? Press 1 for small, 2 for medium, and 3 for large? "))
+    while size > 3 or size < 1:
+      size = int(input("Not Available. Enter again: ")) 
+    if size == 1:
+      total.append(6)
+    if size == 2:
+      total.append(8)
+    if size == 3:
+      total.append(10)
+  #each pizza size equals a different cost being added to the total cost list
+    print(" ")
+    topping = int(input("Would you like any toppings on this pizza? Enter the number of toppings you would like (If none, press 0): "))
+    topping_function(topping)
+    #plugging input from topping into the topping_function function to find the cost of all toppings
+    pizza_count+=1
+    print(" ")
+    print(" ")
+  
+  order_cost = 0
+  for value in total:
+    order_cost += value
+  #takes the values from the list and adds them all together
+  tax = round(order_cost * 0.06, 2)
+  # finds the tax to the 2nd decimal place
+  
+  delivery = int(input("Would you like delivery? This will be $5. Press 1 for yes and 0 for no. "))
+  while delivery != 0 and delivery != 1:
+    delivery = int(input("Not Available. Enter again: "))
+  if delivery == 1:
+    delivery = 5
+  #checks for delivery and assigns cost to delivery variable
+  tip = input("Input how much you would like to tip. If no tip, enter 0. For reference: 15% = $" + str(round(order_cost*.15,2)) + ", 20% = $" + str(round(order_cost*.2,2)) + ", and 22% = $" + str(round(order_cost*.22,2)) + ". Tip : $")
+  # offers the common tipping amounts and records tipping amount
+  total_cost = round(order_cost + tax + delivery + float(tip), 2)
+  # finds the total cost to 2 decimal points
+  name = input("Input a name for the order: ")
+  if delivery == 5:
+    address = input("Input your address to deliver the order to: ")
+  #finds name and asks for the user's address only if user wanted delivery 
+  print(" ")
+  print("#########################")
+  print("APCSPizza Pizza Receipt")
+  print("#########################")
+  print("Order: " + str(pizza_num) + " pizza(s)")
+  print("Cost of pizza(s) + topping(s): $" + str(order_cost))
+  print("Tax: $" + str(tax))
+  print("Tip: $" + str(tip))
+  print("Delivery: $" + str(delivery))
+  print("Total cost: $" + str(total_cost))
+  print("Order name: " + name)
+  if delivery == 5: print("Delivering to address: " + address)
+    #prints only if the user ordered delivery
+  print("Thank you for ordering APSCPizza. Order again soon!")
+  print("Use this coupon on your next purchase: ")
+  print("Get $5 off on any size pizza!")
+  #coupon for funsies
