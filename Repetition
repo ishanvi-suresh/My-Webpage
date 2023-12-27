@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class LoveCS
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        System.out.println("How many times do you want to repeat the statement?");
+        int numTimes = input.nextInt();
+        //assigned user input to variable numTimes
+        int count = 1;
+        while (count <= numTimes){
+            System.out.println(count + " I love Computer Science!!");
+            //prints the count of each statement
+            count++;
+        
+    }
+    System.out.println("Printed this message " + numTimes + " times");
+    //prints out the number of times the statement is repeated
+    }
+}
