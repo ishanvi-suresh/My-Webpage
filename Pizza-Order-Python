@@ -9,7 +9,7 @@ def topping_function(topping_number):
     print("No toppings on pizza #" + str(pizza_count) + ".")
 #this function allows the program to determine how much money for the number of toppings the user orders
 
-print("Hi, thank you for ordering APCSPizza!")
+print("Hi and welcome to my Pizzeria!")
 pizza_num = int(input("How many pizzas would you like? "))
 if pizza_num <= 0:
   print("Okay bye.")
@@ -62,7 +62,7 @@ if pizza_num > 0:
   #finds name and asks for the user's address only if user wanted delivery 
   print(" ")
   print("#########################")
-  print("APCSPizza Pizza Receipt")
+  print("Ishanvi's Pizzeria Receipt")
   print("#########################")
   print("Order: " + str(pizza_num) + " pizza(s)")
   print("Cost of pizza(s) + topping(s): $" + str(order_cost))
